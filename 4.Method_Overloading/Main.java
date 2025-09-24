@@ -8,6 +8,7 @@ class Calculator{
       public double add(double num1,int num2){
              return num1+num2;
       }
+      //Method Overloading : Return type doesn't matter only Parameter Name and Parameter Type matters.
 }
 
 
