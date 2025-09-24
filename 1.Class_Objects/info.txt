@@ -12,3 +12,6 @@ JVM creates objects in Java.
 JVM creates an object but it requires a blueprint.
 
 Thus, you create a class file that class file gets compiled to create a byte code and that byte code goes to the JVM and then JVM creates an object.
+
+#3
+Create Class file -> Get Compiled -> Byte Code -> Goes to JVM -> JVM creates object
