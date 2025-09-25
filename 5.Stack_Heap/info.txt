@@ -29,3 +29,4 @@ class Student{
 -- stack frame of called method is present in stack area.
 -- st is reference variable created inside the current stack frame and it is reference variable store address of student object created in heap area.
 -- new Student() create object in heap area and pointed by his reference variable.
+You need to watch video again.
