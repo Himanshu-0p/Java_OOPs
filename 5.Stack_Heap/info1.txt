@@ -121,3 +121,11 @@ If instance var → Heap (inside object).
 If reference var → Stack, but object in Heap.
 
 If static var/methods → Method Area (Class Area).
+
+Key Rule of Thumb
+
+Local variables + references → Stack
+
+Objects + instance variables → Heap
+
+Static variables + method bytecode → Method Area
