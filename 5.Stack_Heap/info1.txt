@@ -1,0 +1,123 @@
+1) Memory Management in Java
+
+In Java, memory is mainly divided into two categories:
+
+Stack Memory (for execution and method calls)
+
+Heap Memory (for objects and instance data)
+
+👉 Java doesn’t let you manually manage memory (like C/C++). Instead:
+
+JVM + Garbage Collector (GC) handle allocation & deallocation.
+
+Developers just need to know what goes where.
+
+2) Stack
+
+What it is:
+
+A memory area used for method execution.
+
+Follows LIFO (Last In, First Out) principle.
+
+What is stored in stack:
+
+Method call frames (a.k.a. activation records).
+
+Local variables (declared inside a method).
+
+Reference variables (holding addresses of heap objects).
+
+Return addresses, partial results.
+
+Lifecycle:
+
+Created when method is invoked.
+
+Destroyed automatically once method execution finishes.
+
+Thread-specific:
+
+Every thread in Java has its own stack → no interference between threads.
+
+3) Heap
+
+What it is:
+
+A memory area where objects and instance variables live.
+
+Shared among all threads of the JVM.
+
+What is stored in heap:
+
+Objects created using new.
+
+Instance variables (inside those objects).
+
+Lifecycle:
+
+Objects remain in heap until they are garbage collected (no references pointing to them).
+
+Managed by GC:
+
+JVM’s Garbage Collector reclaims unused heap memory automatically.
+
+4) Where Variables Are Allocated?
+
+Let’s use your Student example:
+
+class Student {
+    int instVariable; // instance variable → stored in heap (inside object)
+
+    public static void main(String[] args) {
+        int localVariable = 0;        // stored in stack (method's stack frame)
+        Student st = new Student();   // 'st' is reference variable → in stack
+                                      // new Student() → object in heap
+    }
+
+    public int add(int num1, int num2) {
+        // num1, num2 → local variables (stack frame of add())
+        return num1 + num2;
+    }
+}
+
+Breakdown:
+
+Instance Variable (instVariable)
+→ Belongs to object → object created in heap.
+
+Local Variable (localVariable, num1, num2)
+→ Lives inside stack frame of the method → in stack.
+
+Reference Variable (st)
+→ The reference itself is in stack (inside main frame).
+→ But it points to the actual object in heap.
+
+Methods
+
+Method code (definition) lives in Method Area / Class Area (not stack/heap).
+
+Method execution (stack frame + local vars) lives in stack.
+
+Interview-Friendly Summary 🌟
+
+Stack: Method calls, local variables, references → thread-specific.
+
+Heap: Objects + instance variables → shared by all threads.
+
+Reference variable: Lives in stack, points to object in heap.
+
+Garbage Collector: Frees unused heap memory, not stack.
+
+Static variables & method definitions: Stored in Method Area (a part of JVM memory model).
+
+✅ Key Trick for Interviews:
+When asked "Where is X stored?" →
+
+If local var → Stack.
+
+If instance var → Heap (inside object).
+
+If reference var → Stack, but object in Heap.
+
+If static var/methods → Method Area (Class Area).
