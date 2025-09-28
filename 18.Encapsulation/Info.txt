@@ -1,0 +1,56 @@
+📘 Encapsulation in Java – Theory Notes
+✅ What is Encapsulation?
+
+Encapsulation is the process of binding data (variables) and methods that operate on the data into a single unit (class).
+
+It is also known as data hiding, since the internal details of a class are hidden from the outside world.
+
+Example analogy: A capsule in medicine – everything is wrapped inside and accessed in a controlled way.
+
+✅ How to Achieve Encapsulation?
+
+Use access modifiers:
+
+Make variables private (to restrict direct access).
+
+Provide public methods (getters/setters) to read and modify those variables.
+
+Thus, the internal representation of an object is hidden, and only controlled access is allowed.
+
+✅ Benefits of Encapsulation
+
+Security – prevents direct access to critical data.
+
+Abstraction Support – hides implementation details and exposes only necessary operations.
+
+Controlled Access – getters and setters control how data is accessed or modified.
+
+Flexibility – internal code can be changed without affecting external usage.
+
+Maintainability – easy to log, validate, or restrict inputs when modifying values.
+
+✅ How to Use Private Data?
+
+Since variables are private, they cannot be accessed directly.
+
+To use them, we rely on getter and setter methods:
+
+Getter → retrieves the value.
+
+Setter → updates the value.
+
+This ensures controlled access to the data.
+
+✅ Key Interview Points
+
+Encapsulation = data hiding + binding data and methods in one unit.
+
+Achieved through private variables and public methods.
+
+Improves security, abstraction, maintainability.
+
+Real-world Example: ATM machine → you interact with buttons (methods), not with the bank’s database directly.
+
+🎯 30-second Interview Answer:
+
+“Encapsulation in Java is the process of binding variables and methods into a single unit, usually a class. We achieve it by declaring variables as private and providing public getter and setter methods for controlled access. This ensures data security, supports abstraction, and makes the program flexible and maintainable.”
