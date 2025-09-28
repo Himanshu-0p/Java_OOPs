@@ -1,0 +1,45 @@
+Interview-Ready Key Points
+
+1.Static block executes before main() and only once per class.
+
+2.Used for static variable initialization and one-time setup.
+
+3.If multiple static blocks exist, they execute in the order written.
+
+4.Non-static block executes before constructor and runs every time you create an object.
+
+5.Static block is executed when the class is referenced (object creation, calling a static method, or using a static variable).
+
+
+Static Block in Java
+✅ What is a Static Block?
+
+A static block is a block of code inside a class that is prefixed with the static keyword.
+
+It runs automatically when the class is loaded into memory, even before the main() method or any object creation.
+
+✅ Purpose of Static Block
+
+1.Initialization of static variables
+Useful for setting up static data at class load time.
+
+2.Resource loading
+Example: loading JDBC drivers, reading configuration files.
+
+3.Code that should run once
+Since static block executes only once per class loading, it's perfect for one-time setup.
+
+✅ Execution Order
+
+1.Class is loaded by Class Loader.
+
+2.All static variables are initialized.
+
+3.Static blocks are executed (in order of appearance).
+
+4.main() method is executed.
+
+5.When you create an object → non-static block → constructor runs.
+
+
+
