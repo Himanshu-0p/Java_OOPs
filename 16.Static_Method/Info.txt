@@ -1,0 +1,115 @@
+. What is a Static Method?
+
+A static method belongs to the class, not to any specific object.
+
+Can be called using the class name, without creating an object.
+
+👉 Definition for interview:
+
+"A static method is a class-level method that can be invoked without creating an object. It can only directly access static members."
+
+2. Why Use Static Methods?
+
+For utility/helper methods (e.g., Math.sqrt(), Integer.parseInt()).
+
+When the logic is independent of object state.
+
+Saves memory → no need to create unnecessary objects.
+
+3. How to Define & Call
+class Calc {
+    static int add(int a, int b) {  // static method
+        return a + b;
+    }
+
+    int multiply(int a, int b) {    // instance method
+        return a * b;
+    }
+
+    public static void main(String[] args) {
+        // Calling static method (no object needed)
+        System.out.println(Calc.add(10, 20)); // 30
+
+        // Calling instance method (object required)
+        Calc obj = new Calc();
+        System.out.println(obj.multiply(10, 20)); // 200
+    }
+}
+
+4. Rules of Static Methods
+
+Can only access static variables and other static methods directly.
+
+static int x = 5;
+int y = 10;
+
+static void show() {
+    System.out.println(x);   // ✅ OK
+    // System.out.println(y); ❌ Error: non-static variable
+}
+
+
+Cannot use this or super.
+
+Because they are object-specific keywords.
+
+Can be overloaded ✅ but not overridden ❌.
+
+Overloading → Allowed (compile-time polymorphism).
+
+Overriding → Not allowed (static methods use early binding).
+
+5. Accessing Instance Variables in Static Methods
+
+Directly → ❌ Not possible.
+
+Indirectly → ✅ Possible through object reference.
+
+Example:
+
+class Student {
+    int marks = 90; // instance variable
+
+    static void printMarks(Student s) {
+        System.out.println(s.marks); // access via object
+    }
+
+    public static void main(String[] args) {
+        Student obj = new Student();
+        Student.printMarks(obj); // passing object to static method
+    }
+}
+
+
+✅ Output:
+
+90
+
+6. Real-World Example
+class Utils {
+    static void greet(String name) {
+        System.out.println("Hello, " + name);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Utils.greet("Himanshu"); // no object needed
+    }
+}
+
+🎯 Interview-Ready One-Liners
+
+What is a static method? → A method that belongs to the class, not objects.
+
+How is it accessed? → By class name (e.g., ClassName.method()), object reference works but not recommended.
+
+What can it access directly? → Only static variables and methods.
+
+Can it access instance variables? → Not directly, but possible using object reference.
+
+Can static methods be overridden? → No, only overloaded.
+
+Why use static methods? → Utility methods, memory efficiency, and logic independent of object state.
+
+Can static methods use this or super? → No.
