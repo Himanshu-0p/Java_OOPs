@@ -1,0 +1,97 @@
+Static Keyword in Java (Simplified for Interview)
+1. What is static?
+
+The static keyword makes a member belong to the class instead of objects.
+
+That means only one copy exists in memory, shared by all objects.
+
+👉 Interview definition:
+
+"static members are class-level members, shared across all objects, and loaded into memory when the class is first loaded."
+
+2. Where can we use static?
+
+✅ There are 4 main places:
+
+Static variable (class variable)
+
+Static method
+
+Static block
+
+Static nested class
+
+3. When memory gets allocated?
+
+Static members are created when the class is loaded into JVM (before any object is created).
+
+They are stored in a special area of method area (inside JVM memory).
+
+👉 Key point: Static variables exist even if no objects are created.
+
+4. Static vs Instance Variables
+Feature	Static Variable	Instance Variable
+Memory allocation	Once (class load)	Every time a new object is created
+Belongs to	Class	Each object
+Shared by objects	✅ Yes	❌ No
+Access	ClassName.var or obj.var	Only via object
+Example change	Change reflects in all objects	Change affects only that object
+Example
+class Calc {
+    static int stA = 100;  // static variable
+    int inB = 100;         // instance variable
+
+    public static void main(String[] args) {
+        Calc obj1 = new Calc();
+        Calc obj2 = new Calc();
+
+        // Access static variable
+        System.out.println(Calc.stA);  // 100
+        System.out.println(obj1.stA);  // 100 (not recommended way, but works)
+
+        // Access instance variable
+        System.out.println(obj1.inB);  // 100
+
+        // Change values
+        obj1.stA = 2000;
+        obj1.inB = 1000;
+
+        // Static variable is shared
+        System.out.println(obj1.stA); // 2000
+        System.out.println(obj2.stA); // 2000
+
+        // Instance variable is separate
+        System.out.println(obj1.inB); // 1000
+        System.out.println(obj2.inB); // 100
+    }
+}
+
+5. Rules to Remember (Interview Gold 🌟)
+
+Static members can be accessed inside non-static methods directly.
+
+static int a = 10;
+void print() { System.out.println(a); } // ✅ works
+
+
+Non-static members CANNOT be accessed inside static methods without object.
+
+int b = 20;
+static void test() {
+    // System.out.println(b); ❌ error
+    Calc c = new Calc();
+    System.out.println(c.b); // ✅ correct
+}
+
+
+Static methods cannot use this or super keyword (since they don’t belong to an object).
+
+🎯 Interview-Ready One-Liners
+
+What is static? → A class-level keyword; static members are shared across all objects.
+
+Where stored? → In JVM’s method area, during class loading.
+
+Why use static? → Saves memory, common utilities, constants.
+
+Difference with instance variable? → Static belongs to class (shared), instance belongs to objects (separate copy).
