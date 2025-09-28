@@ -1,0 +1,114 @@
+1. Creating Strings: new vs String Literal
+Using String Literal
+String name1 = "navin";
+String name2 = "navin";
+
+
+Both name1 and name2 will point to the same object inside the String Constant Pool (SCP).
+
+Why? Because JVM checks SCP first. If "navin" already exists, it reuses the object instead of creating a new one.
+
+System.out.println(name1 == name2); // true (same object reference)
+
+Using new keyword
+String name3 = new String("navin");
+String name4 = new String("navin");
+
+
+Here, new always creates a new object in heap (outside SCP).
+
+Even though both contain "navin", they are different objects.
+
+System.out.println(name3 == name4); // false (different objects)
+System.out.println(name3.equals(name4)); // true (same content)
+
+
+👉 Key point:
+
+== → checks object reference (memory address).
+
+.equals() → checks content (characters inside string).
+
+2. String Constant Pool (SCP)
+
+SCP is a special memory region in heap where all string literals are stored.
+
+Benefit: Saves memory by reusing same string objects.
+
+Example:
+
+String a = "hello";
+String b = "hello"; // Reuses "hello" from SCP
+
+3. Assigning Different Value to a String Reference
+String str = "Mathura";
+str = str + " city"; 
+System.out.println(str); // Mathura city
+
+
+What happened?
+
+"Mathura" was in SCP.
+
+When we did str + " city", a new object "Mathura city" was created.
+
+str now points to the new object.
+
+"Mathura" is not changed (because Strings are immutable).
+
+If no variable points to "Mathura", it becomes eligible for Garbage Collection (GC).
+
+4. Mutable vs Immutable Strings
+Immutable → String
+
+Once created, you cannot change the object.
+
+Any modification results in a new object.
+
+Example:
+
+String s1 = "java";
+s1.concat(" programming");
+System.out.println(s1); // java (unchanged)
+
+String s2 = s1.concat(" programming");
+System.out.println(s2); // java programming (new object)
+
+Mutable → StringBuilder & StringBuffer
+
+Both allow modifications without creating new objects.
+
+Difference:
+
+StringBuffer → Thread-safe (synchronized) → slower
+
+StringBuilder → Not thread-safe → faster
+
+Example:
+
+// Using StringBuffer
+StringBuffer sb = new StringBuffer("java");
+sb.append(" programming");
+System.out.println(sb); // java programming (modified in same object)
+
+// Using StringBuilder
+StringBuilder sb2 = new StringBuilder("java");
+sb2.append(" coding");
+System.out.println(sb2); // java coding (modified in same object)
+
+
+👉 Notice the difference:
+
+String → "java" never changes. Always creates a new object.
+
+StringBuffer/StringBuilder → Change happens inside the same object.
+
+✅ Summary
+
+String Literal → Stored in SCP, reused.
+
+new String() → Always creates a new object.
+
+String is immutable → Any change creates a new object.
+
+StringBuffer & StringBuilder are mutable → Can be modified without creating new objects.
