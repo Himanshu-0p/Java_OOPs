@@ -9,9 +9,9 @@ class Human{
         System.out.println("Constructor called: Default values is assigned");
     }
     
-    public Human(String n ,int a){
-        name = n;
-        age = a ;
+    public Human(String name ,int age){
+        this.name = name;
+        this.age = age ;
         System.out.println("Constructor called : Values assigned");
     }
 
