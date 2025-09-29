@@ -1,0 +1,62 @@
+# Constructors in Java
+
+## Definition
+A constructor is a special method-like block used to initialize objects.
+
+## Properties
+- Name same as class
+- No return type
+- Automatically called during object creation
+- Can be parameterized
+- Constructor overloading is allowed
+
+## Syntax
+```java
+class ClassName {
+    ClassName() { /* code */ }
+    ClassName(int x) { /* code */ }
+}
+
+
+**Example README.md for Objects:**
+
+```markdown
+# Objects in Java
+
+## Simple Objects
+- Created with reference variable
+- Reusable
+- Stored in Heap (object) + Stack (reference)
+
+## Anonymous Objects
+- Created without reference
+- One-time use
+- Direct method calls
+
+## Syntax
+```java
+A obj = new A();   // Simple object
+new A().show();    // Anonymous object
+
+
+Java OOP
+├── Constructors
+│ ├── Definition
+│ ├── Properties
+│ ├── Syntax
+│ ├── Default Constructor
+│ ├── Parameterized Constructor
+│ └── Differences from Method
+├── Objects
+│ ├── Simple Objects
+│ │ ├── Declaration
+│ │ ├── Creation
+│ │ └── Reusability
+│ └── Anonymous Objects
+│ ├── Definition
+│ ├── Syntax
+│ └── Limitations
+└── Combined Example
+├── Default Constructor + Simple Object
+├── Parameterized Constructor + Simple Object
+└── Anonymous Object
