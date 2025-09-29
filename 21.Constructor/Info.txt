@@ -1,0 +1,32 @@
+Constructors in Java – Simplified Notes
+1. What is a Constructor?
+
+A constructor is a special block of code used to initialize objects of a class.
+
+When you create an object, the constructor sets up initial values for the object's attributes.
+
+If you don’t define a constructor, Java provides a default constructor automatically.
+
+2. Properties of a Constructor
+
+1.Same name as the class – this is mandatory.
+
+2.No return type, not even void.
+
+3.Automatically called when an object is created.
+
+4.Called only once per object creation.
+
+5.Can take parameters to initialize objects with specific values (parameterized constructor).
+
+6.If you don’t provide one, a default constructor (no-argument) is automatically created by Java. 
+
+5. Key Points to Remember
+
+Default constructor → No arguments, automatically provided if none is written.
+
+Parameterized constructor → Lets you initialize object with specific values.
+
+Constructor overloading is possible (multiple constructors with different parameters).
+
+Constructor cannot be static.
