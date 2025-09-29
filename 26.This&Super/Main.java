@@ -14,11 +14,11 @@ class A extends Object
 
 class B extends A{
     public B(){
-        super(5);
+        super(5);  // super() is always there but dont see it.It is used parent chaining or superclass chaining
         System.out.println("in B");
     }
     public B(int n){
-        this(n);
+        this(n);  
         System.out.println("in B int");
     }
 }
