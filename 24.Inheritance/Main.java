@@ -4,7 +4,7 @@ class Animal {
     }
 }
 
-class Dog extends Animal {
+class Dog extends Animal {           //DOG is a subclass and Animal is a superclass
     void bark() {
         System.out.println("Barking...");
     }
